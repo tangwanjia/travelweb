@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('travel_webs', function (Blueprint $table) {
             $table->id();
+            $table->string('title',100);
+            $table->text('text');
+            $table->text('keywords');
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -17,7 +17,10 @@ class TravelWebFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "title"=> $this->faker->sentence(5),
+            "text"=> $this -> faker ->paragraph(5),
+            "keywords"=>$this ->faker ->sentence(10),
+            "user_id"=> $this->faker->numberBetween(1,10)
         ];
     }
 }

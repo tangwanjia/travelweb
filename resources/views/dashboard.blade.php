@@ -5,8 +5,6 @@
         </h2>
     </x-slot>
 
-    <?php var_dump($travelwebs);?>
-
     <div class="max-w-7xl mx-auto">
         <div class="m-6">
             <div class="bg-white my-3 p-12 rounded shadow">
@@ -21,9 +19,7 @@
                         <label class="block" for="text">Text</label>
                         <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
                     </div>
-                    <div action="upload.php" method="post" enctype="multipart/form-data">
-                        Select image to upload:
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+
 
                     </div><br>
                     <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
@@ -38,7 +34,7 @@
                     <form class="mb-5" method="post" action="/dashboard/travelwebs/{{$travelWeb->id}}">
                         @csrf
                         @method('put')
-
+                        {{ method_field('PUT') }}
                         <div class="mb-3">
                             <label class="block" for="title">Title</label>
                             <input class="block w-full border-slate-300" id="title" name="title"
@@ -48,13 +44,10 @@
                             <label class="block" for="text">Text</label>
                             <textarea class="block w-full border-slate-300" id="text" name="text">{{ $travelWeb->text }}</textarea>
                         </div>
-                        <div action="upload.php" method="post" enctype="multipart/form-data">
-                            Select image to upload:
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                        </div><br>
-                        <button class="block w-full bg-sky-500 text-white p-3 font-bold">Update Note</button>
+
+                        <button type="submit" class="block w-full bg-sky-500 text-white p-3 font-bold">Update Note</button>
                     </form>
-                    <form method="post" action="/dashboard/travelwebs/{{$travelWeb->id}}>
+                    <form method="post" action="/dashboard/travelwebs/{{$travelWeb->id}}">
                         @csrf
                         @method('delete')
                         <button class="block w-full bg-red-600 text-white p-3 font-bold">Delete Note</button>

@@ -13,8 +13,8 @@ class TravelWebController extends Controller
      */
     public function index()
     {
-        $travelWeb = Auth::user();
-        return view('dashboard', ["travelWebs"=>Auth::user()->travelWebs]);
+        $travelWebs = Auth::user()->travelWebs;
+        return view('dashboard', ['travelWebs' => $travelWebs]);
     }
 
     /**
@@ -34,7 +34,7 @@ class TravelWebController extends Controller
         $travelWeb=new TravelWeb();
         $travelWeb->title = $request->title;
         $travelWeb->text=$request->text;
-        $travelWeb->fileToUpload=$request->fileToUpload;
+        //$travelWeb->fileToUpload=$request->fileToUpload;
         $travelWeb->user_id = Auth::id();
         $travelWeb->save();
 
@@ -67,8 +67,8 @@ class TravelWebController extends Controller
             //update note
             $travelWeb->title = $request->title;
             $travelWeb->text = $request->text;
-            $travelWeb->fileToUpload= $request->fileToUpload;
             $travelWeb->save();
+            return redirect('/dashboard');
         }
     }
 

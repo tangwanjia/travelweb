@@ -14,10 +14,11 @@ Route::get('/dashboard', [TravelWebController::class,'index']) ->middleware(['au
 Route::post('/dashboard', [TravelWebController::class,'store']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
-Route::put('/dashboard/travelwebs/{travelWeb}', [TravelWebController::class,'update']) ->middleware(['auth',
+
+Route::put('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class,'update']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
-Route::delete('/dashboard/travelwebs/{travelWeb}', [TravelWebController::class,'destroy']) ->middleware(['auth',
+Route::delete('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class,'destroy']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

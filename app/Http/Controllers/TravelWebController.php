@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TravelWeb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TravelWebController extends Controller
 {
@@ -12,7 +13,8 @@ class TravelWebController extends Controller
      */
     public function index()
     {
-        //
+        $travelWeb = Auth::user();
+        return view('dashboard', ["travelWebs"=>Auth::user()->travelWebs]);
     }
 
     /**
@@ -28,7 +30,16 @@ class TravelWebController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //save database
+        $travelWeb=new TravelWeb();
+        $travelWeb->title = $request->title;
+        $travelWeb->text=$request->text;
+        $travelWeb->fileToUpload=$request->fileToUpload;
+        $travelWeb->user_id = Auth::id();
+        $travelWeb->save();
+
+        //return user back to dashboard
+        return redirect('/dashboard');
     }
 
     /**
@@ -52,7 +63,13 @@ class TravelWebController extends Controller
      */
     public function update(Request $request, TravelWeb $travelWeb)
     {
-        //
+        if (Auth::id() == $travelWeb->user_id){
+            //update note
+            $travelWeb->title = $request->title;
+            $travelWeb->text = $request->text;
+            $travelWeb->fileToUpload= $request->fileToUpload;
+            $travelWeb->save();
+        }
     }
 
     /**
@@ -60,6 +77,10 @@ class TravelWebController extends Controller
      */
     public function destroy(TravelWeb $travelWeb)
     {
-        //
+        if(Auth::id() == $travelWeb->user_id){
+            $travelWeb->delete();
+        }
+
+        return redirect('/dashboard');
     }
 }

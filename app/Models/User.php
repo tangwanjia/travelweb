@@ -46,7 +46,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function travelWeb():HasMany{
+    public function travelWebs():HasMany{
+
         return $this->hasMany(travelWeb::class);
     }
 }

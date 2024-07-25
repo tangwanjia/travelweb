@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('travel_webs', function (Blueprint $table) {
-            $table->id();
-            $table->string('title',100);
-            $table->text('text');
-
-            $table->bigInteger('user_id')->unsigned();
-            $table->timestamps();
+        Schema::table('travel_webs', function (Blueprint $table) {
+            $table->string('image')->nullable();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('travel_webs');
+        Schema::table('travel_webs', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 };

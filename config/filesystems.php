@@ -35,6 +35,12 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
+        'disk'=> [
+        'images' => [
+        'driver' => 'local',
+        'root' => 'public/storage/images',
+        ],
+    ],
 
         'public' => [
             'driver' => 'local',

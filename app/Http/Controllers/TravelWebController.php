@@ -36,6 +36,7 @@ class TravelWebController extends Controller
         $travelWeb->text=$request->text;
         //$travelWeb->fileToUpload=$request->fileToUpload;
         $travelWeb->user_id = Auth::id();
+        $travelWeb->image=$request->image;
         $travelWeb->save();
 
         //return user back to dashboard
@@ -67,6 +68,7 @@ class TravelWebController extends Controller
             //update note
             $travelWeb->title = $request->title;
             $travelWeb->text = $request->text;
+            $travelWeb->image=$request->image;
             $travelWeb->save();
             return redirect('/dashboard');
         }

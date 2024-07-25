@@ -15,8 +15,9 @@ Route::post('/dashboard', [TravelWebController::class,'store']) ->middleware(['a
             'verified'])->name('dashboard');
 
 
-Route::put('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class,'update']) ->middleware(['auth',
-            'verified'])->name('dashboard');
+Route::put('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class, 'update'])
+            ->middleware(['auth', 'verified'])
+            ->name('dashboard.update');
 
 Route::delete('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class,'destroy']) ->middleware(['auth',
             'verified'])->name('dashboard');

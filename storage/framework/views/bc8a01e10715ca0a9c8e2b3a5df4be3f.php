@@ -30,7 +30,7 @@
                         <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
                     </div>
                     <div>
-                        <label for="image">Image:</label>
+                        <label for="image" >Image:</label>
                         <input type="file" name="image" id="image">
                     </div><br>
                     <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
@@ -42,7 +42,7 @@
             <?php $__currentLoopData = $travelWebs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $travelWeb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="basis-1/3 p-6">
                 <div class="bg-white rounded shadow p-6">
-                    <form class="mb-5" method="POST" action="/dashboard/travelwebs/<?php echo e($travelWeb->id); ?>">
+                    <form class="mb-5" method="POST" action="/dashboard/travelWebs/<?php echo e($travelWeb->id); ?>">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('PUT'); ?>
                         <div class="mb-3">
@@ -58,12 +58,11 @@
                             <label for="image">Image:</label>
                             <input type="file" name="image" id="image">
                         </div><br>
-                    </form>
-
-                    <form class="mb-5" method="post" action="/dashboard/travelwebs/<?php echo e($travelWeb->id); ?>">
                         <button type="submit" class="block w-full bg-sky-500 text-white p-3 font-bold">Update Note</button>
                     </form>
-                    <form method="post" action="/dashboard/travelwebs/<?php echo e($travelWeb->id); ?>">
+
+
+                    <form method="post" action="/dashboard/travelWebs/<?php echo e($travelWeb->id); ?>">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('delete'); ?>
                         <?php echo e(method_field('delete')); ?>

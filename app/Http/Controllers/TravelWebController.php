@@ -70,6 +70,7 @@ class TravelWebController extends Controller
             $travelWeb->text = $request->text;
             $travelWeb->image=$request->image;
             $travelWeb->save();
+
             return redirect('/dashboard');
         }
     }

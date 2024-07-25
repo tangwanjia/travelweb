@@ -20,7 +20,7 @@
                         <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
                     </div>
                     <div>
-                        <label for="image">Image:</label>
+                        <label for="image" >Image:</label>
                         <input type="file" name="image" id="image">
                     </div><br>
                     <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
@@ -32,7 +32,7 @@
             @foreach ($travelWebs as $travelWeb)
             <div class="basis-1/3 p-6">
                 <div class="bg-white rounded shadow p-6">
-                    <form class="mb-5" method="POST" action="/dashboard/travelwebs/{{$travelWeb->id}}">
+                    <form class="mb-5" method="POST" action="/dashboard/travelWebs/{{$travelWeb->id}}">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -48,12 +48,11 @@
                             <label for="image">Image:</label>
                             <input type="file" name="image" id="image">
                         </div><br>
-                    </form>
-
-                    <form class="mb-5" method="post" action="/dashboard/travelwebs/{{$travelWeb->id}}">
                         <button type="submit" class="block w-full bg-sky-500 text-white p-3 font-bold">Update Note</button>
                     </form>
-                    <form method="post" action="/dashboard/travelwebs/{{$travelWeb->id}}">
+
+
+                    <form method="post" action="/dashboard/travelWebs/{{$travelWeb->id}}">
                         @csrf
                         @method('delete')
                         {{ method_field('delete') }}

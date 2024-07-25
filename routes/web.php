@@ -15,11 +15,11 @@ Route::post('/dashboard', [TravelWebController::class,'store']) ->middleware(['a
             'verified'])->name('dashboard');
 
 
-Route::put('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class, 'update'])
+Route::put('/dashboard/travelWebs/{travelWeb?}', [TravelWebController::class, 'update'])
             ->middleware(['auth', 'verified'])
             ->name('dashboard.update');
 
-Route::delete('/dashboard/travelwebs/{travelWeb?}', [TravelWebController::class,'destroy']) ->middleware(['auth',
+Route::delete('/dashboard/travelWebs/{travelWeb?}', [TravelWebController::class,'destroy']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

@@ -15,11 +15,12 @@
         </h2>
      <?php $__env->endSlot(); ?>
 
+
     <div class="max-w-7xl mx-auto">
         <div class="m-6">
             <div class="bg-white my-3 p-12 rounded shadow">
                 <h2 class="font-bold mb-3 text-lg">New Travel Recommendation</h2>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <div class="mb-3">
                         <label class="block" for="title">Title</label>
@@ -33,6 +34,7 @@
                         <label for="image" >Image:</label>
                         <input type="file" name="image" id="image">
                     </div><br>
+
                     <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
                 </form>
             </div>
@@ -42,7 +44,7 @@
             <?php $__currentLoopData = $travelWebs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $travelWeb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="basis-1/3 p-6">
                 <div class="bg-white rounded shadow p-6">
-                    <form class="mb-5" method="POST" action="/dashboard/travelWebs/<?php echo e($travelWeb->id); ?>">
+                    <form class="mb-5" method="POST" action="/dashboard/travelWebs/<?php echo e($travelWeb->id); ?>" enctype="multipart/form-data">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('PUT'); ?>
                         <div class="mb-3">
@@ -53,7 +55,7 @@
                             <label class="block" for="text">Text</label>
                             <textarea class="block w-full border-slate-300" id="text" name="text"><?php echo e($travelWeb->text); ?></textarea>
                         </div>
-                        <img src="<?php echo e(asset($travelWeb->image)); ?>" alt="<?php echo e($travelWeb->image); ?>" width="30px" height="20px">
+                        <img src="<?php echo e($travelWeb->image); ?>" alt="<?php echo e($travelWeb->image); ?>" style="width: 50%" >
                         <div>
                             <label for="image">Image:</label>
                             <input type="file" name="image" id="image">

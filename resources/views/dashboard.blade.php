@@ -4,6 +4,7 @@
             {{ __('travelWebs') }}
         </h2>
     </x-slot>
+    <x-navbar />
 
 
     <div class="max-w-7xl mx-auto">

@@ -54,8 +54,8 @@
                             <label class="block" for="category">Categories</label>
                             <select class="form-control border-slate-300"" name="category" id="category">
                                 <label for="category">Select A Category</label>
-                                @foreach ($categories as $category )
-                                    <option value="{{ $category }}">{{ $category }}</option>
+                                @foreach ($categories as $update=>$category )
+                                    <option value="{{ $update }}" {{$travelWeb->category == $update ? 'selected' : '' }}>{{ $category }}</option>
                                 @endforeach
                             </select>
                         </div>

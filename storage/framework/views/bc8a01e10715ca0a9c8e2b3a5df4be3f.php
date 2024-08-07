@@ -82,8 +82,8 @@
                             <label class="block" for="category">Categories</label>
                             <select class="form-control border-slate-300"" name="category" id="category">
                                 <label for="category">Select A Category</label>
-                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $update=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($update); ?>" <?php echo e($travelWeb->category == $update ? 'selected' : ''); ?>><?php echo e($category); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>

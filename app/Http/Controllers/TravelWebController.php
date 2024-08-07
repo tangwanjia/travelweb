@@ -85,6 +85,7 @@ class TravelWebController extends Controller
      */
     public function update(Request $request, TravelWeb $travelWeb)
     {
+       // dd($request->all());
         if (Auth::id() == $travelWeb->user_id){
             //update not
 

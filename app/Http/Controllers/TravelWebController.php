@@ -10,14 +10,23 @@ use Illuminate\Support\Facades\Storage;
 
 class TravelWebController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $travelWebs = Auth::user()->travelWebs;
-        return view('dashboard', ['travelWebs' => $travelWebs]);
+        $categories = [
+            'food',
+            'views',
+            'archetectures',
+        ];
+        return view('dashboard', ['travelWebs' => $travelWebs, 'categories' => $categories]);
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -82,17 +91,7 @@ class TravelWebController extends Controller
             $travelWeb->title = $request->title;
             $travelWeb->text = $request->text;
 
-            // if($request->hasFile('image')){
-            //     $destination = '/pictures/'. $travelWeb->image;
-            //     if(File::exists($destination)){
-            //         File::delete($destination);
-            //     }
-            //     $file = $request->file('image');
-            //     $extention = $file->getClientOriginalExtension();
-            //     $fileName = time(). $extention;
-            //     $file->move('/pictures/', $fileName);
-            //     $travelWeb->image=$file;
-            // }
+
             if ($request->hasFile('image')) {
                 // Delete the old image if it exists
                 $oldImagePath = public_path(parse_url($travelWeb->image, PHP_URL_PATH));

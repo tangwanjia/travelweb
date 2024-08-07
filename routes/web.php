@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TravelWebController;
 use Illuminate\Support\Facades\Route;
@@ -8,12 +9,16 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+
 Route::get('/dashboard', [TravelWebController::class,'index']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
 Route::post('/dashboard', [TravelWebController::class,'store']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
+// Route::get('/dashboard', [TravelWebController::class,'categories']) ->middleware(['auth',
+//             'verified'])->name('dashboard');
 
 Route::put('/dashboard/travelWebs/{travelWeb?}', [TravelWebController::class, 'update'])
             ->middleware(['auth', 'verified'])

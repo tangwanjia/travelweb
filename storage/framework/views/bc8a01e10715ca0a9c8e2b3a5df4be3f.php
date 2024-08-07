@@ -10,11 +10,29 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <?php echo e(__('travelWebs')); ?>
-
+            <?php echo e(__('travelWebs')); ?><br>
         </h2>
      <?php $__env->endSlot(); ?>
-
+    <?php if (isset($component)) { $__componentOriginala591787d01fe92c5706972626cdf7231 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginala591787d01fe92c5706972626cdf7231 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navbar','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('navbar'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginala591787d01fe92c5706972626cdf7231)): ?>
+<?php $attributes = $__attributesOriginala591787d01fe92c5706972626cdf7231; ?>
+<?php unset($__attributesOriginala591787d01fe92c5706972626cdf7231); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginala591787d01fe92c5706972626cdf7231)): ?>
+<?php $component = $__componentOriginala591787d01fe92c5706972626cdf7231; ?>
+<?php unset($__componentOriginala591787d01fe92c5706972626cdf7231); ?>
+<?php endif; ?>
 
     <div class="max-w-7xl mx-auto">
         <div class="m-6">
@@ -26,6 +44,16 @@
                         <label class="block" for="title">Title</label>
                         <input class="block w-full border-slate-300" id="title" name="title" >
                     </div>
+                    <div class="mb-3">
+                        <label class="block" for="category">Categories</label>
+                        <select class="form-control" name="category" id="category">
+                            <label for="category">Select A Category</label>
+                            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select></br></br>
+                    </div>
+
                     <div class="form-group mb-3">
                         <label class="block" for="text">Text</label>
                         <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
@@ -34,7 +62,6 @@
                         <label for="image" >Image:</label>
                         <input type="file" name="image" id="image">
                     </div><br>
-
                     <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
                 </form>
             </div>

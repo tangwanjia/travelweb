@@ -33,6 +33,10 @@
 <?php $component = $__componentOriginala591787d01fe92c5706972626cdf7231; ?>
 <?php unset($__componentOriginala591787d01fe92c5706972626cdf7231); ?>
 <?php endif; ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 86bf741e0429147b5a3ae86abbcba5bbc7fb082d
 
     <div class="max-w-7xl mx-auto">
         <div class="m-6">

@@ -5,6 +5,10 @@
         </h2>
     </x-slot>
     <x-navbar />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 86bf741e0429147b5a3ae86abbcba5bbc7fb082d
 
     <div class="max-w-7xl mx-auto">
         <div class="m-6">

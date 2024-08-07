@@ -46,12 +46,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="block" for="category">Categories</label>
-                        <select class="form-control" name="category" id="category">
+                        <select class="form-control border-slate-300"" name="category" id="category">
                             <label for="category">Select A Category</label>
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select></br></br>
+                        </select>
                     </div>
 
                     <div class="form-group mb-3">
@@ -78,6 +78,16 @@
                             <label class="block" for="title">Title</label>
                             <input class="block w-full border-slate-300" id="title" name="title" value="<?php echo e($travelWeb->title); ?>">
                         </div>
+                        <div class="mb-3">
+                            <label class="block" for="category">Categories</label>
+                            <select class="form-control border-slate-300"" name="category" id="category">
+                                <label for="category">Select A Category</label>
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label class="block" for="text">Text</label>
                             <textarea class="block w-full border-slate-300" id="text" name="text"><?php echo e($travelWeb->text); ?></textarea>

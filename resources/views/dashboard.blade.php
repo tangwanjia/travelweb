@@ -18,12 +18,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="block" for="category">Categories</label>
-                        <select class="form-control" name="category" id="category">
+                        <select class="form-control border-slate-300"" name="category" id="category">
                             <label for="category">Select A Category</label>
                             @foreach ($categories as $category )
                                 <option value="{{ $category }}">{{ $category }}</option>
                             @endforeach
-                        </select></br></br>
+                        </select>
                     </div>
 
                     <div class="form-group mb-3">
@@ -50,6 +50,16 @@
                             <label class="block" for="title">Title</label>
                             <input class="block w-full border-slate-300" id="title" name="title" value="{{ $travelWeb->title }}">
                         </div>
+                        <div class="mb-3">
+                            <label class="block" for="category">Categories</label>
+                            <select class="form-control border-slate-300"" name="category" id="category">
+                                <label for="category">Select A Category</label>
+                                @foreach ($categories as $category )
+                                    <option value="{{ $category }}">{{ $category }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label class="block" for="text">Text</label>
                             <textarea class="block w-full border-slate-300" id="text" name="text">{{ $travelWeb->text }}</textarea>

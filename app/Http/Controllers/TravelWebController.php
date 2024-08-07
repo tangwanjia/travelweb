@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\TravelWeb;
+use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -18,11 +20,8 @@ class TravelWebController extends Controller
     public function index()
     {
         $travelWebs = Auth::user()->travelWebs;
-        $categories = [
-            'food',
-            'views',
-            'archetectures',
-        ];
+        $categories = category::all()->pluck('category', 'id');
+
         return view('dashboard', ['travelWebs' => $travelWebs, 'categories' => $categories]);
 
     }
@@ -55,6 +54,7 @@ class TravelWebController extends Controller
         $travelWeb=new TravelWeb();
         $travelWeb->title = $request->title;
         $travelWeb->text=$request->text;
+        $travelWeb->category = $request->category;
         $travelWeb->user_id = Auth::id();
         $travelWeb->image=$file;
         $travelWeb->save();
@@ -90,7 +90,7 @@ class TravelWebController extends Controller
 
             $travelWeb->title = $request->title;
             $travelWeb->text = $request->text;
-
+            $travelWeb->category = $request->category;
 
             if ($request->hasFile('image')) {
                 // Delete the old image if it exists

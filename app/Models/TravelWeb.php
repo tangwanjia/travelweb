@@ -9,9 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TravelWeb extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'text', 'category_id', 'user_id', 'image'];
 
     //method to get the specific user
     public function user():BelongsTo{
         return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

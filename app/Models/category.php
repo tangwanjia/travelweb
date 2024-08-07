@@ -10,6 +10,13 @@ class category extends Model
 
     use HasFactory;
 
+    protected $fillable = ['category'];
+
+    public function travelWebs()
+    {
+        return $this->hasMany(TravelWeb::class);
+    }
+
 }
 
 

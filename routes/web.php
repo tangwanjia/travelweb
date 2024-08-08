@@ -14,8 +14,13 @@ Route::get('/', function () {
 Route::get('/dashboard', [TravelWebController::class,'index']) ->middleware(['auth',
             'verified'])->name('dashboard');
 
-Route::post('/dashboard', [TravelWebController::class,'store']) ->middleware(['auth',
-            'verified'])->name('dashboard');
+// Route::post('/dashboard/createnew', [TravelWebController::class,'store']) ->middleware(['auth',
+//             'verified'])->name('dashboard');
+
+            // routes/web.php
+// Route::get('/createnew', function () {return view('createnew'); // 返回 'resources/views/createnew.blade.php' 文件
+//             })->name('create.new');
+
 
 // Route::get('/dashboard', [TravelWebController::class,'categories']) ->middleware(['auth',
 //             'verified'])->name('dashboard');

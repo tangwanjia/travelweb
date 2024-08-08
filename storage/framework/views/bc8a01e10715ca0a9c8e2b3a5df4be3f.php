@@ -34,43 +34,46 @@
 <?php unset($__componentOriginala591787d01fe92c5706972626cdf7231); ?>
 <?php endif; ?>
 
-    <div class="max-w-7xl mx-auto">
-        <div class="m-6">
-            <div class="bg-white my-3 p-12 rounded shadow">
-                <h2 class="font-bold mb-3 text-lg">New Travel Recommendation</h2>
-                <form method="post" enctype="multipart/form-data">
-                    <?php echo csrf_field(); ?>
-                    <div class="mb-3">
-                        <label class="block" for="title">Title</label>
-                        <input class="block w-full border-slate-300" id="title" name="title" >
-                    </div>
-                    <div class="mb-3">
-                        <label class="block" for="category">Categories</label>
-                        <select class="form-control border-slate-300"" name="category" id="category">
-                            <label for="category">Select A Category</label>
-                            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label class="block" for="text">Text</label>
-                        <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
-                    </div>
-                    <div>
-                        <label for="image" >Image:</label>
-                        <input type="file" name="image" id="image">
-                    </div><br>
-                    <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
-                </form>
-            </div>
+    <div class="max-w-7xl mx-auto max-h-7xl">
+        <div class="my-3 p-12 rounded shadow bg-yellow-300 h-45">
+            <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-200 align-text-top">
+                <a href="createnew.blade.php">New Recommendation</a>
+            </h1>
         </div>
+
+        <div class="m-6">
+
+
+            <div class="mb-3">
+                <label class="block" for="title">Title</label>
+                <input class="block w-full border-slate-300" id="title" name="title" >
+            </div>
+            <div class="mb-3">
+                <label class="block" for="category">Categories</label>
+                <select class="form-control border-slate-300"" name="category" id="category">
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($category); ?>"><?php echo e($category); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="block" for="text">Text</label>
+                <textarea class="block w-full border-slate-300" id="text" name="text"></textarea>
+            </div>
+            <div>
+                <label for="image" >Image:</label>
+                <input type="file" name="image" id="image">
+            </div><br>
+            <button class="bg-sky-500 text-white p-3 font-bold">Add Note</button>
+        </form>
+    </div>
+
 
         <div class="flex flex-wrap">
             <?php $__currentLoopData = $travelWebs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $travelWeb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="basis-1/3 p-6">
-                <div class="bg-white rounded shadow p-6">
+            <div class="basis-1/3 p-2">
+                <div class="bg-blue-100 rounded shadow p-6">
                     <form class="mb-5" method="POST" action="/dashboard/travelWebs/<?php echo e($travelWeb->id); ?>" enctype="multipart/form-data">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('PUT'); ?>
@@ -113,6 +116,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
+</div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
